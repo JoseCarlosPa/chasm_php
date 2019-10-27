@@ -96,6 +96,14 @@ function ob2(){
 
 }
 
+function ob3(){
+    $conn = conectDb();
+    $sql = "SELECT * FROM usuarios";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+
+}
+
 function obtenerProductos()
 {
     $conn = conectDb();
@@ -109,6 +117,19 @@ function obtenerProductos()
     return $result;
 }
 
+function insert_new_prodcut($nombre,$descripcion,$precio,$color,$id_clase,$id_subclases,$cantidad){
+    $conn = conectDb();
 
+    $sql = "INSERT INTO productos (nombre,descripcion,precio,color,id_clase,id_subclases,cantidad) VALUES ('$nombre','$descripcion','$precio','$color','$id_clase','$id_subclases','$cantidad')";
+    if (mysqli_query($conn, $sql)) {
+        closeDb($conn);
+        return true;
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        closeDb($conn);
+        return false;
+    }
+    closeDb($conn);
+}
 
 

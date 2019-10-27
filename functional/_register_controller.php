@@ -32,7 +32,7 @@ if (isset($_POST["submit"])){
         && $_POST["email_r"] != ""
         && $_POST["password_r"] != ""){
 
-        if(insert_new_user($_POST["nombre_r"],password_hash($_POST["password_r"],PASSWORD_DEFAULT),$_POST["email_r"],'1',$_POST["empresa"])){
+        if(insert_new_user($_POST["nombre_r"],password_hash($_POST["password_r"],PASSWORD_DEFAULT),$_POST["email_r"],'2',$_POST["empresa"])){
             header('location: ../index.php');
 
         }else{
