@@ -132,4 +132,21 @@ function insert_new_prodcut($nombre,$descripcion,$precio,$color,$id_clase,$id_su
     closeDb($conn);
 }
 
+function eliminarUsuarioPorID($id_usuario)
+{
+    $conn = conectDb();
+    $sql = "DELETE FROM usuarios WHERE id_usuario = ?";
+    if($stmt = $conn->prepare($sql)){
+        $stmt->bind_param('i', $id_usuario);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        closeDB($conn);
+        return true;
+    } else{
+        closeDB($conn);
+        return false;
+    }
+    closeDB($conn);
+}
 

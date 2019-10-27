@@ -14,7 +14,8 @@ if (mysqli_num_rows($result) > 0) {
         $query_table .= '<td>' . $row["user_type_id"] . '</td>';
         $query_table .= '<td>' . $row["empresa"] . '</td>';
         $query_table .= '<td>
-                        <a class="btn btn-medium waves-effect waves-light red accent-3 hoverable" href="">
+               
+                        <a class="btn btn-medium waves-effect waves-light red accent-3 hoverable" href="functional/_eliminar_usuario.php?id='.$row['id_usuario'].'">
                             <i class="btn btn-danger">Eliminar</i>
                         </a>
                     </td>';
