@@ -57,21 +57,34 @@ function consultar_correos(){
     return $result;
 }
 
-function autentificarse($email)
+function autentificarse($email, $password)
 {
     $conn = conectDb();
-    $sql = "SELECT password FROM usuarios WHERE email = 'jose@ex.com'";
-    if (mysqli_query($conn, $sql)) {
-        closeDb($conn);
-        $valor = mysqli_fetch_row($sql);
-        echo 'Hay un: '.$valor[0];
-        return true;
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        closeDb($conn);
-        return false;
+    $sql = "SELECT password FROM usuarios WHERE email = ?";
+    if($stmt = $conn->prepare($sql)){
+        $stmt->bind_param('s',$email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        closeDB($conn);
     }
-    closeDb($conn);
+    $row = mysqli_fetch_assoc($result);
+    $contra = password_verify($password, $row['password']);
+    return $contra;
+}
+
+function login($email, $password)
+{
+    $conn = conectDb();
+    $sql = "SELECT id_usuario,nombre,user_type_id,empresa FROM usuarios WHERE email = ?";
+    if($stmt = $conn->prepare($sql)){
+        $stmt->bind_param('s',$email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+    }
+    closeDB($conn);
+    return $result;
 }
 
 
