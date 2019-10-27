@@ -14,9 +14,9 @@ if (isset($_POST["submit"])) {
         $_POST['password'] = htmlentities($_POST['password']);
 
 
+
         if (autentificarse(($_POST["email"]), ($_POST["password"]))) {
             $usuario = login($_POST["email"], $_POST["password"]);
-            header('location: ../admin.php');
             if (mysqli_num_rows($usuario)) {
                 while ($row = mysqli_fetch_assoc($usuario)) {
                     //asigna a sesion el nombre de la personas
@@ -30,6 +30,12 @@ if (isset($_POST["submit"])) {
                     $_SESSION['nombre'] = $row['empresa'];
                     $_SESSION['id_usuario'] = $row['id_usuario'];
                 }
+                if($_SESSION['user_type_id'] == 1){
+                    header('location: ../admin.php');
+                }else{
+                    header('location: ../index.php');
+                }
+
             }
 
         }else{

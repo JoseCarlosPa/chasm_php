@@ -60,7 +60,7 @@ function consultar_correos(){
 function autentificarse($email, $password)
 {
     $conn = conectDb();
-    $sql = "SELECT password FROM usuarios WHERE email = ?";
+    $sql = "SELECT password,user_type_id FROM usuarios WHERE email = ?";
     if($stmt = $conn->prepare($sql)){
         $stmt->bind_param('s',$email);
         $stmt->execute();

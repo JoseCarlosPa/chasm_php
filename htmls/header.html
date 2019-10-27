@@ -44,7 +44,14 @@
                                 <p><img src="imgs/home/dungeon.png" width="130%" height="100%"></p>
                             </div>
                             <div class ="col-sm-8 inicio_sesion">
-                                <p style="font-size: 90%"><a href="" data-toggle="modal" data-target=".bd-example-modal-lg">Iniciar Sesion</a></p>
+                                <?php
+                                    if($_SESSION['usuario']):
+                                    echo $_SESSION['usuario'] . '<br><a href ="functional/_logout.php">Cerrar sesion</a>';
+                                    else:
+                                    echo '<p style="font-size: 90%"><a href="" data-toggle="modal" data-target=".bd-example-modal-lg">Iniciar Sesion</a></p>';
+                                    endif;
+                                 ?>
+
                             </div>
                         </div>
                     </div>
