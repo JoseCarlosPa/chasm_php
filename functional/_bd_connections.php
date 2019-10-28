@@ -31,7 +31,7 @@ function closeDb($mysql)
 function insert_new_user($nombre,$password,$email,$user_type_id,$empresa){
     $conn = conectDb();
 
-    $sql = "INSERT INTO usuarios (nombre,password,email,user_type_id,empresa) VALUES ('$nombre','$password','$email','$user_type_id','$empresa')";
+    $sql = "INSERT INTO usuarios (nombreu,password,email,user_type_id,empresa) VALUES ('$nombre','$password','$email','$user_type_id','$empresa')";
     if (mysqli_query($conn, $sql)) {
         closeDb($conn);
         return true;
@@ -76,7 +76,7 @@ function autentificarse($email, $password)
 function login($email, $password)
 {
     $conn = conectDb();
-    $sql = "SELECT id_usuario,nombre,user_type_id,empresa FROM usuarios WHERE email = ?";
+    $sql = "SELECT id_usuario,nombreu,user_type_id,empresa FROM usuarios WHERE email = ?";
     if($stmt = $conn->prepare($sql)){
         $stmt->bind_param('s',$email);
         $stmt->execute();
@@ -90,32 +90,12 @@ function login($email, $password)
 
 function ob2(){
     $conn = conectDb();
-    $sql = "SELECT * FROM productos";
+    $sql = "SELECT * FROM productos,clases where clases.id_clases = productos.id_clase";
     $result = mysqli_query($conn,$sql);
     return $result;
 
 }
 
-function ob3(){
-    $conn = conectDb();
-    $sql = "SELECT * FROM usuarios";
-    $result = mysqli_query($conn,$sql);
-    return $result;
-
-}
-
-function obtenerProductos()
-{
-    $conn = conectDb();
-    $sql = "SELECT id_productos,nombre, descripcion, precio, color, id_clase, id_subclases , cantidad FROM productos";
-    if($stmt = $conn->prepare($sql)){
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
-    }
-    closeDB($conn);
-    return $result;
-}
 
 function insert_new_prodcut($nombre,$descripcion,$precio,$color,$id_clase,$id_subclases,$cantidad){
     $conn = conectDb();
@@ -149,4 +129,40 @@ function eliminarUsuarioPorID($id_usuario)
     }
     closeDB($conn);
 }
+
+function eliminarproductoPorID($id_producto)
+{
+    $conn = conectDb();
+    $sql = "DELETE FROM productos WHERE id_productos = ?";
+    if($stmt = $conn->prepare($sql)){
+        $stmt->bind_param('i', $id_producto);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        closeDB($conn);
+        return true;
+    } else{
+        closeDB($conn);
+        return false;
+    }
+    closeDB($conn);
+}
+
+
+function informacionProducto($id_producto)
+{
+    $conn = conectDb();
+    $sql = "select * FROM productos WHERE id_productos = '$id_producto'";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+}
+
+function ob3(){
+    $conn = conectDb();
+    $sql = "SELECT * FROM usuarios,usertype where usertype.id_usertype = usuarios.user_type_id";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+
+}
+
 

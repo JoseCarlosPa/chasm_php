@@ -9,9 +9,9 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $query_table .= "<tr>";
         $query_table .= '<td>' . $row["id_usuario"] . '</td>';
-        $query_table .= '<td>' . $row["nombre"] . '</td>';
+        $query_table .= '<td>' . $row["nombreu"] . '</td>';
         $query_table .= '<td>' . $row["email"] . '</td>';
-        $query_table .= '<td>' . $row["user_type_id"] . '</td>';
+        $query_table .= '<td>' . $row["nombre"] . '</td>';
         $query_table .= '<td>' . $row["empresa"] . '</td>';
         $query_table .= '<td>
                

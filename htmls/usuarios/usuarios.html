@@ -46,10 +46,7 @@
                         <input type="text" name ="empresa"class="form-control" style="width: 15em;text-align: left"
                                id="nombre_empre" aria-describedby="nombre" placeholder="Empresa">
                     </div>
-                    <div class="form-group">
-                        <input type="text" name ="tipo_usuario"class="form-control" style="width: 15em;text-align: left"
-                               id="tipo_usuario" aria-describedby="tipo_usuario" placeholder="Tipo de usuario">
-                    </div>
+
                     <div class="form-group">
                         <input type="email" name ="email_r"class="form-control" style="width: 15em;text-align: left"
                                id="email_r" aria-describedby="nombre" placeholder="Correo electornico">
@@ -58,7 +55,14 @@
                         <input type="password" name ="password_r"class="form-control" style="width: 15em;text-align: left"
                                id="password_r" aria-describedby="nombre" placeholder="Contraseña">
                     </div>
-                    <button class="button_modal" type="submit" name="submit">Registrar</button>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Tipo de usuario</label>
+                        <select class="" id="exampleFormControlSelect1" name ="tipo_usuario" id="tipo_usuario" placeholder="Tipo de usuario">
+                            <option value="1">Admin</option>
+                            <option value="2">Usaurio</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" type="submit" name="submit">Registrar</button>
                     <br><br>
                 </form>
             </div>

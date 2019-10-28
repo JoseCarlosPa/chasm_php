@@ -9,22 +9,16 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $query_table .= "<tr>";
         $query_table .= '<td>' . $row["id_productos"] . '</td>';
-        $query_table .= '<td>' . $row["nombre"] . '</td>';
+        $query_table .= '<td>' . $row["nombrep"] . '</td>';
         $query_table .= '<td>' . $row["descripcion"] . '</td>';
         $query_table .= '<td>' . $row["cantidad"] . '</td>';
+        $query_table .= '<td>' . $row["nombrec"] . '</td>';
         $query_table .= '<td>
-                            <a class="modal-trigger btn btn-primary" href="javascript:void(0);"                       
-                                onclick="">Info
+                        <a class="modal-trigger btn btn-primary" href="functional/_editar_producto.php?id='.$row['id_productos'].'">INFO/EDITAR
                             </a>
                         </td>';
-        $query_table .=
-            '<td>
-                        <a class="btn btn-medium waves-effect waves-light modal-trigger amber darken-1 accent-3 hoverable" href="" onclick="">
-                            <i class="btn btn-warning">Editar</i>
-                        </a>
-                    </td>';
         $query_table .= '<td>
-                        <a class="btn btn-medium waves-effect waves-light red accent-3 hoverable" href="">
+                        <a class="btn btn-medium waves-effect waves-light red accent-3 hoverable" href="functional/_eliminar_producto.php?id='.$row['id_productos'].'">
                             <i class="btn btn-danger">Eliminar</i>
                         </a>
                     </td>';
@@ -42,9 +36,9 @@ if (mysqli_num_rows($result) > 0) {
                             <th class="th-sm">Nombre</th>
                             <th class="th-sm">Descripcion</th>
                             <th class="th-sm">Cantidad</th>
-                            
+                            <th class="th-sm">Clase</th>
                             <th class="th-sm">Más Información</th>
-                            <th class="th-sm">Editar</th>
+                          
                             <th class="th-sm">Eliminar</th>
                         </tr>
                     </thead>
