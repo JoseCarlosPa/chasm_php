@@ -12,7 +12,7 @@
 
 <div class ="row">
     <div class ="col-sm-12 text-right">
-        <button class ="admin_button">Agregar Productos</button>
+        <button class ="admin_button" data-toggle="modal" data-target="#agregarModal">Agregar Productos</button>
     </div>
 
 </div>
@@ -22,6 +22,42 @@
 
         <?php include('_mostrar_tablas.php'); ?>
 
+    </div>
+</div>
+
+<div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="agregarModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action ="functional/_new_prodcut.php">
+                <div class="modal-body">
+                    <input type="text" name ="nombre" placeholder="Nombre">
+                    <input type="text" name ="descripcion"placeholder="descripcion">
+                    <input type="text" name ="precio_p"placeholder="Precio Publico">
+                    <input type="text" name ="precio_u"placeholder="Precio Usuarios">
+                    <input type="text" name ="cantidad"placeholder="Cantidad">
+                    <select name ="dispo">
+                        <option value="1">Disponible</option>
+                        <option value="1">No Disponible</option>
+                    </select>
+                    <label>Clase</label>
+                    <select name ="clase">
+                        <option value="1">1</option>
+
+                    </select>
+                    <input type="text" name ="color" placeholder="color">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" name ="submit">Agregar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

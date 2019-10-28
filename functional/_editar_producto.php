@@ -219,7 +219,7 @@ echo'
 
             <!-- Begin Page Content --------------------------------------------------------------->
             <div class="container-fluid">
-            <form method="post" >
+            <form method="post" action="modificar_producto.php?id='.$row['id_productos'].'">
                 <h2>Producto No:'.$row['id_productos'].' 
                 <div class ="row">
                 <div class ="col-sm-6">
@@ -239,7 +239,19 @@ echo'
                                 <h3>Producto</h3>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="producto" placeholder="'.$row['nombrep'].'">
+                                <input style ="font-size: 70%;"name ="nombre" value="'.$row['nombrep'].'">
+                            </div>
+                         </div>
+                    </div>  
+                </div>
+                <div class ="row">
+                    <div class ="col-sm-6">
+                        <div class ="row">
+                            <div class ="col-sm-6">
+                                <h3>Descripcion</h3>
+                            </div>
+                            <div class ="col-sm-6">
+                                <input style ="font-size: 70%;"name ="nombre" value="'.$row['descripcion'].'">
                             </div>
                          </div>
                     </div>  
@@ -251,7 +263,7 @@ echo'
                                 <h3>Categoria</h3>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="producto" placeholder="'.$row['id_clase'].'">
+                                <input style ="font-size: 70%;"name ="clase" value="'.$row['id_clase'].'">
                             </div>
                          </div>
                     </div>  
@@ -263,7 +275,7 @@ echo'
                                 <h3>Precio Publico</h3>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="producto" placeholder="'.$row['precio'].'">
+                                <input style ="font-size: 70%;"name ="precio" value="'.$row['precio'].'">
                             </div>
                          </div>
                     </div>  
@@ -275,7 +287,7 @@ echo'
                                 <h3>Precio usuarios</h3>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="producto" placeholder="'.$row['precio_p'].'">
+                                <input style ="font-size: 70%;"name ="precio_p" placeholder="'.$row['precio_p'].'">
                             </div>
                          </div>
                     </div>  
@@ -286,7 +298,7 @@ echo'
                        <button class ="btn btn-secondary">Descartar</button>
                     </div>
                     <div class ="col-sm-3">
-                       <button class ="btn btn-primary">Guardar</button>
+                       <button class ="btn btn-primary" type="submit" name ="submite">Guardar</button>
                     </div>
                 </div>
             </form>
@@ -294,7 +306,8 @@ echo'
             <div class ="col-sm-6">
                 <div class ="row">
                     <div class ="col-sm-3">
-                       <a href ="google.com.mx"><button class ="btn btn-danger">Eliminar</button></a>
+                    <a href ="_eliminar_producto.php?id='.$row['id_productos'].'">Eliminar</a>
+                        
                     </div>
                 </div>
             </div>

@@ -100,7 +100,7 @@ function ob2(){
 function insert_new_prodcut($nombre,$descripcion,$precio,$color,$id_clase,$id_subclases,$cantidad){
     $conn = conectDb();
 
-    $sql = "INSERT INTO productos (nombre,descripcion,precio,color,id_clase,id_subclases,cantidad) VALUES ('$nombre','$descripcion','$precio','$color','$id_clase','$id_subclases','$cantidad')";
+    $sql = "INSERT INTO productos (nombrep,descripcion,precio,color,id_clase,id_subclases,cantidad) VALUES ('$nombre','$descripcion','$precio','$color','$id_clase','$id_subclases','$cantidad')";
     if (mysqli_query($conn, $sql)) {
         closeDb($conn);
         return true;
@@ -165,4 +165,14 @@ function ob3(){
 
 }
 
+
+function modificarProducto($id,$nombre,$descripcion,$categoria,$preciop,$preciou){
+    $conn = conectDb();
+    $sql = "
+    UPDATE productos
+    SET nombrep = '$nombre', descripcion= '$descripcion',id_clase= '$categoria',precio= '$preciop',precio_p= '$preciou',
+    WHERE id_productos = '$id';
+    
+    ";
+}
 
