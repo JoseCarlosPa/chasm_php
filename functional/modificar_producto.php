@@ -1,9 +1,9 @@
 <?php
 
 require_once ('_bd_connections.php');
-echo '1';
+
 if (isset($_POST["submit"])){
-    echo '1';
+
 
     $_GET['id'] = htmlentities($_GET['id']);
     $_POST["nombre"] = htmlentities($_POST["nombre"]);
@@ -11,6 +11,7 @@ if (isset($_POST["submit"])){
     $_POST["clase"] = htmlentities($_POST["clase"]);
     $_POST["precio"] = htmlentities($_POST["precio"]);
     $_POST["precio_p"] = htmlentities($_POST["precio_p"]);
+
 
     if (isset($_POST["nombre"])
         && isset($_POST["descripcion"])
@@ -22,12 +23,12 @@ if (isset($_POST["submit"])){
         && $_POST["clase"] != ""
         && $_POST["precio_p"] != ""
         && $_POST["precio"] != ""){
-
-        if(modificarProducto($_GET['id'],$_POST["nombre"], $_POST["descripcion"],$_POST["clase"],$_POST["precio"],$_POST["precio_p"])){
+        var_dump(modificarProducto($_GET['id'],$_POST["nombre"], $_POST["descripcion"],$_POST["clase"],$_POST["precio"],$_POST["precio"]));
+        if(modificarProducto($_GET['id'],$_POST["nombre"], $_POST["descripcion"],$_POST["clase"],$_POST["precio"],$_POST["precio"])){
             header('location: ../admin.php');
 
         }else{
-            header('location: ../admin.php');
+           //header('location: ../admin.php');
         }
     }
 }

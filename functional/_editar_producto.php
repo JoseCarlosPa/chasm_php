@@ -1,11 +1,11 @@
 <?php
-require_once ('_bd_connections.php');
+require_once('_bd_connections.php');
 session_start();
 $_GET['id'] = htmlentities($_GET['id']);
-$result = informacionProducto($_GET['id'] );
+$result = informacionProducto($_GET['id']);
 $row = mysqli_fetch_assoc($result);
 
-echo'
+echo '
 <!DOCTYPE html>
 <html lang="en">
 
@@ -198,7 +198,7 @@ echo'
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">'.$_SESSION["usuario"].'</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">' . $_SESSION["usuario"] . '</span>
 
                         </a>
                         <!-- Dropdown - User Information -->
@@ -219,16 +219,16 @@ echo'
 
             <!-- Begin Page Content --------------------------------------------------------------->
             <div class="container-fluid">
-            <form method="post" action="modificar_producto.php?id='.$row['id_productos'].'">
-                <h2>Producto No:'.$row['id_productos'].' 
+            <form method="post" action="modificar_producto.php?id=' . $row['id_productos'] . '">
+                <h2>Producto No:' . $row['id_productos'] . ' 
                 <div class ="row">
-                <div class ="col-sm-6">
+                <div class ="col-sm-10">
                
                 <div class ="row">
                     <div class ="col-sm-12">
                         <img src ="#">
                         <br>
-                        <input style ="font-size: 50%"name="uploadedfile" type="file" />
+                        <input style ="font-size: 50%"name="imagen" type="file" />
                     </div>  
                 </div>
                 <br>
@@ -236,10 +236,10 @@ echo'
                     <div class ="col-sm-6">
                         <div class ="row">
                             <div class ="col-sm-6">
-                                <h3>Producto</h3>
+                                <h4>Producto</h4>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="nombre" value="'.$row['nombrep'].'">
+                                <input style ="font-size: 70%;"name ="nombre" value="' . $row['nombrep'] . '">
                             </div>
                          </div>
                     </div>  
@@ -248,10 +248,10 @@ echo'
                     <div class ="col-sm-6">
                         <div class ="row">
                             <div class ="col-sm-6">
-                                <h3>Descripcion</h3>
+                                <h4>Descripcion</h4>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="nombre" value="'.$row['descripcion'].'">
+                                <input style ="font-size: 70%;"name ="descripcion" value="' . $row['descripcion'] . '">
                             </div>
                          </div>
                     </div>  
@@ -260,10 +260,10 @@ echo'
                     <div class ="col-sm-6">
                         <div class ="row">
                             <div class ="col-sm-6">
-                                <h3>Categoria</h3>
+                                <h4>Clase</h4>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="clase" value="'.$row['id_clase'].'">
+                                <input style ="font-size: 70%;"name ="clase" value="' . $row['nombrec'] . '">
                             </div>
                          </div>
                     </div>  
@@ -272,10 +272,10 @@ echo'
                     <div class ="col-sm-6">
                         <div class ="row">
                             <div class ="col-sm-6">
-                                <h3>Precio Publico</h3>
+                                <h4>Subclase</h4>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="precio" value="'.$row['precio'].'">
+                                <input style ="font-size: 70%;"name ="clase" value="' . $row['nombresc'] . '">
                             </div>
                          </div>
                     </div>  
@@ -284,33 +284,65 @@ echo'
                     <div class ="col-sm-6">
                         <div class ="row">
                             <div class ="col-sm-6">
-                                <h3>Precio usuarios</h3>
+                                <h4>Cantidad</h4>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="precio_p" placeholder="'.$row['precio_p'].'">
+                                <input style ="font-size: 70%;"name ="precio" value="' . $row['cantidad'] . '">
                             </div>
                          </div>
                     </div>  
                 </div>
                 <div class ="row">
-                    
-                    <div class ="col-sm-3">
-                       <button class ="btn btn-secondary">Descartar</button>
+                    <div class ="col-sm-6">
+                        <div class ="row">
+                            <div class ="col-sm-6">
+                                <h4>Precio Publico</h4>
+                            </div>
+                            <div class ="col-sm-6">
+                                <input style ="font-size: 70%;"name ="precio" value="' . $row['precio'] . '">
+                            </div>
+                         </div>
+                    </div>  
+                </div>
+                <div class ="row">
+                    <div class ="col-sm-6">
+                        <div class ="row">
+                            <div class ="col-sm-6">
+                                <h4>Color</h4>
+                            </div>
+                            <div class ="col-sm-6">
+                                <input style ="font-size: 70%;"name ="precio" value="' . $row['color'] . '">
+                            </div>
+                         </div>
+                    </div>  
+                </div>
+                <div class ="row">
+                    <div class ="col-sm-6">
+                        <div class ="row">
+                            <div class ="col-sm-6">
+                                <h4>Precio usuarios</h4>
+                            </div>
+                            <div class ="col-sm-6">
+                                <input style ="font-size: 70%;"name ="precio_p" value="' . $row['precio_p'] . '">
+                            </div>
+                         </div>
+                    </div>  
+                </div>
+                <br>
+                <div class ="row">
+                    <div class ="col-sm-2">
+                       <a href ="../admin.php"><button type="button" class ="btn btn-secondary">Descartar</button></a>
                     </div>
-                    <div class ="col-sm-3">
-                       <button class ="btn btn-primary" type="submit" name ="submite">Guardar</button>
+                    <div class ="col-sm-2">
+                       <button type ="submit"class ="btn btn-primary" type="submit" name ="submit">Guardar</button>
+                    </div>
+                    <div class ="col-sm-2">
+                        <a href ="_eliminar_producto.php?id=' . $row['id_productos'] . '"><button type="button" class ="btn btn-danger">Eliminar</button></a>
                     </div>
                 </div>
             </form>
             </div>
-            <div class ="col-sm-6">
-                <div class ="row">
-                    <div class ="col-sm-3">
-                    <a href ="_eliminar_producto.php?id='.$row['id_productos'].'">Eliminar</a>
-                        
-                    </div>
-                </div>
-            </div>
+            
             </div>
            
             </div>

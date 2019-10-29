@@ -152,7 +152,7 @@ function eliminarproductoPorID($id_producto)
 function informacionProducto($id_producto)
 {
     $conn = conectDb();
-    $sql = "select * FROM productos WHERE id_productos = '$id_producto'";
+    $sql = "select * FROM productos,clases,sublcases WHERE id_productos = '$id_producto' and productos.id_clase = clases.id_clases and productos.id_subclases = sublcases.id_subclase";
     $result = mysqli_query($conn,$sql);
     return $result;
 }
@@ -174,5 +174,6 @@ function modificarProducto($id,$nombre,$descripcion,$categoria,$preciop,$preciou
     WHERE id_productos = '$id';
     
     ";
+    return true;
 }
 

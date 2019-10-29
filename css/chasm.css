@@ -555,6 +555,9 @@ ul.horizontal li{
 .listas_tienda{
     margin-left: 25%;
 }
+.boton_tienda:hover{
+    background: #dbdbdb;
+}
 
 /*
 FIn de imagenes----------------
