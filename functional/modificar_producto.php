@@ -7,6 +7,7 @@ if (isset($_POST["submit"])){
 
     $_GET['id'] = htmlentities($_GET['id']);
     $_POST["nombre"] = htmlentities($_POST["nombre"]);
+    $_POST["cantidad"] = htmlentities($_POST["cantidad"]);
     $_POST["descripcion"] = htmlentities($_POST["descripcion"]);
     $_POST["clase"] = htmlentities($_POST["clase"]);
     $_POST["precio"] = htmlentities($_POST["precio"]);
@@ -14,21 +15,25 @@ if (isset($_POST["submit"])){
 
 
     if (isset($_POST["nombre"])
+        && isset($_POST["cantidad"])
         && isset($_POST["descripcion"])
         && isset($_POST["clase"])
         && isset($_POST["precio"])
         && isset($_POST["precio_p"])
+        && $_POST["cantidad"] != ""
         && $_POST["descripcion"] != ""
         && $_POST["nombre"] != ""
         && $_POST["clase"] != ""
         && $_POST["precio_p"] != ""
         && $_POST["precio"] != ""){
-        var_dump(modificarProducto($_GET['id'],$_POST["nombre"], $_POST["descripcion"],$_POST["clase"],$_POST["precio"],$_POST["precio"]));
-        if(modificarProducto($_GET['id'],$_POST["nombre"], $_POST["descripcion"],$_POST["clase"],$_POST["precio"],$_POST["precio"])){
+        var_dump($_POST["precio"]);
+        if(modificarProducto($_GET['id'],$_POST["nombre"], $_POST["descripcion"],$_POST["precio"], $_POST["precio_p"],$_POST["cantidad"])){
+            echo 'si lo logro';
             header('location: ../admin.php');
 
         }else{
-           //header('location: ../admin.php');
+            echo 'NO lo logro';
+           header('location: ../admin.php');
         }
     }
 }

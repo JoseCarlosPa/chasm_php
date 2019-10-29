@@ -275,7 +275,7 @@ echo '
                                 <h4>Subclase</h4>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="clase" value="' . $row['nombresc'] . '">
+                                <input style ="font-size: 70%;"name ="subclase" value="' . $row['nombresc'] . '">
                             </div>
                          </div>
                     </div>  
@@ -287,7 +287,7 @@ echo '
                                 <h4>Cantidad</h4>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="precio" value="' . $row['cantidad'] . '">
+                                <input style ="font-size: 70%;"name ="cantidad" value="' . $row['cantidad'] . '">
                             </div>
                          </div>
                     </div>  
@@ -311,7 +311,7 @@ echo '
                                 <h4>Color</h4>
                             </div>
                             <div class ="col-sm-6">
-                                <input style ="font-size: 70%;"name ="precio" value="' . $row['color'] . '">
+                                <input style ="font-size: 70%;"name ="color" value="' . $row['color'] . '">
                             </div>
                          </div>
                     </div>  
