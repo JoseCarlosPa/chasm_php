@@ -1,6 +1,6 @@
 <?php
 require_once('functional/_bd_connections.php');
-$result = ob4(1);
+$result = ob4($_GET['pagina']);
 $query_table = "";
 
 if (mysqli_num_rows($result) > 0) {
@@ -30,17 +30,7 @@ if (mysqli_num_rows($result) > 0) {
 
     }
     echo $query_table;
-    echo '
-     <nav aria-label="Page navigation example" class ="-align-right">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#" id = "pre">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#" id = "1">1</a></li>
-                <li class="page-item"><a class="page-link" href="#" id = "2">2</a></li>
-                <li class="page-item"><a class="page-link" href="#" id = "3">3</a></li>
-                <li class="page-item"><a class="page-link" href="#" id = "next">Next</a></li>
-            </ul>
-        </nav>
-    ';
+
 }
 
 

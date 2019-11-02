@@ -564,6 +564,20 @@ ul.horizontal li{
     color : yellow;
 }
 
+.listas_tienda_link{
+   text-decoration: none;
+    color: black;
+}
+
+.listas_tienda_link:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.margin_numeros{
+    margin-left: 80%;
+}
+
 /*
 FIn de imagenes----------------
  */
