@@ -202,8 +202,8 @@ html {
 }
 
 .container_footer {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
 
 }
 
@@ -217,6 +217,7 @@ ul {
 }
 
 li {
+    font-size: 90%;
     color: white;
 }
 
@@ -557,6 +558,10 @@ ul.horizontal li{
 }
 .boton_tienda:hover{
     background: #dbdbdb;
+}
+
+.letras{
+    color : yellow;
 }
 
 /*

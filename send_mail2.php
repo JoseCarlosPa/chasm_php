@@ -3,7 +3,7 @@
 $para  = 'josecarlospas1@gmail.com';
 
 // título
-$titulo = $_POST['asunto'];
+$titulo = 'Formar parte de CHASM';
 
 // mensaje
 $mensaje = '
@@ -12,9 +12,8 @@ $mensaje = '
   <title>CHASM ONLINE</title>
 </head>
 <body>
-  <p>La siguiente persona desea solicitar informacion</p>
-  <p>'.$_POST['nombre'].' con correo: '.$_POST['email'].'</p>
-  <p>Desea lo siguiente '.$_POST['mensaje'].'</p>
+  <p>La siguiente persona desea ser parte del equipo CHASM</p>
+  <p>'.$_POST['email'].'</p>
 </body>
 </html>
 ';
