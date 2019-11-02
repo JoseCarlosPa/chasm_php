@@ -96,6 +96,31 @@ function ob2(){
 
 }
 
+function ob4($inicio){
+
+    $tamanio_pagina = 9;
+    $pagina = $inicio;
+    $empezar_desde = ($pagina-1)*$tamanio_pagina;
+
+    $conn = conectDb();
+    $sql = "SELECT * FROM productos,clases where clases.id_clases = productos.id_clase LIMIT $empezar_desde,$tamanio_pagina";
+    $result = mysqli_query($conn,$sql);
+    $numeroFilas = mysqli_num_rows($result);
+    $total_paginas = ceil($numeroFilas/$tamanio_pagina);
+
+    return $result;
+
+}
+
+function producto($id){
+
+    $conn = conectDb();
+    $sql = "SELECT * FROM productos,clases where clases.id_clases = productos.id_clase and id_productos = $id";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+
+}
+
 
 function insert_new_prodcut($nombre,$descripcion,$precio,$color,$id_clase,$id_subclases,$cantidad){
     $conn = conectDb();
