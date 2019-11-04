@@ -1,15 +1,15 @@
 <?php
 session_start();
-$GLOBALS['local_servidor'] =1;
+$GLOBALS['local_servidor'] =0;
 $_SESSION['error_bd_login'] = 0;
 //se conecta con la base de datos indicada
 function conectDb()
 {
     if($GLOBALS['local_servidor'] == 0){
-        $servername = "db5000198857.hosting-data.io";
-        $username = "dbu146184";
-        $password = "M1-escuela-es";
-        $dbname = "dbs193863";
+        $servername = "mx76";
+        $username = "mochilas";
+        $password = "V6l3Z.jq2LwJ#7";
+        $dbname = "mochilas_chasm";
     }else{
         $servername = "localhost";
         $username = "root";
@@ -198,3 +198,50 @@ function modificarProducto($id,$nombre,$descripcion,$preciop,$preciou,$cantidad,
     return $result;
 }
 
+function mostrarClases(){
+    $conn = conectDb();
+    $sql = "SELECT * FROM clases";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+}
+
+function insert_new_class($nombre){
+    $conn = conectDb();
+
+    $sql = "INSERT INTO clases (nombrec) VALUES ('$nombre')";
+    if (mysqli_query($conn, $sql)) {
+        closeDb($conn);
+        return true;
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        closeDb($conn);
+        return false;
+    }
+    closeDb($conn);
+}
+
+function eliminarClasePorID($id_clase){
+    $conn = conectDb();
+    $sql = "DELETE FROM clases WHERE id_clases = ?";
+    if($stmt = $conn->prepare($sql)){
+        $stmt->bind_param('i', $id_clase);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        closeDB($conn);
+        return true;
+    } else{
+        closeDB($conn);
+        return false;
+    }
+    closeDB($conn);
+
+}
+
+
+function mostrarSubClases(){
+    $conn = conectDb();
+    $sql = "SELECT * FROM sublcases";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+}
