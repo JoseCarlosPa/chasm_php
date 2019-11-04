@@ -34,14 +34,20 @@ if (isset($_POST["submit"])){
         && $_POST["color"] != ""
         && $_POST["dispo"] != ""
         && $_POST["clase"] != ""){
-        echo'Ent';
 
-        if(insert_new_prodcut($_POST["nombre"],$_POST["descripcion"],$_POST["precio_u"],$_POST["color"],$_POST["clase"],$_POST["clase"],$_POST["cantidad"])){
-            echo'Registro';
+        $dir = "../imgs/tienda/productos/";
+        opendir($dir);
+        $destino = $dir.$_FILES['fichero']['name'];
+        copy($_FILES['fichero']['tmp_name'],$destino);
+
+
+        if(insert_new_prodcut($_POST["nombre"],$_POST["descripcion"],$_POST["precio_u"],$_POST["color"],$_POST["clase"],$_POST["clase"],$_POST["cantidad"],$_FILES['fichero']['name'])){
+
+
             header('location: ../admin.php');
 
         }else{
-            echo'No registro';
+
             //header('location: ../admin.php');
         }
     }

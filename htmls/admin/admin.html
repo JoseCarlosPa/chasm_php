@@ -34,23 +34,34 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action ="functional/_new_prodcut.php">
+            <form method="post" action ="functional/_new_prodcut.php" enctype="multipart/form-data">
                 <div class="modal-body">
+                    <br><label>Nombre</label>
                     <input type="text" name ="nombre" placeholder="Nombre">
-                    <input type="text" name ="descripcion"placeholder="descripcion">
+                    <br><label>Descripcion</label>
+                    <input type="text" name ="descripcion"placeholder="Descripcion">
+                    <br><label>Precio Publico</label>
                     <input type="text" name ="precio_p"placeholder="Precio Publico">
-                    <input type="text" name ="precio_u"placeholder="Precio Usuarios">
+                    <br><label>Precio prefernecial</label>
+                    <input type="text" name ="precio_u"placeholder="Precio prefernecial">
+                    <br><label>Cantidad</label>
                     <input type="text" name ="cantidad"placeholder="Cantidad">
                     <select name ="dispo">
-                        <option value="1">Disponible</option>
+                        <option value="0">Disponible</option>
                         <option value="1">No Disponible</option>
                     </select>
-                    <label>Clase</label>
+                    <br><label>Clase</label>
                     <select name ="clase">
                         <option value="1">1</option>
-
                     </select>
+                    <br><label>Sub-Clase</label>
+                    <select name ="clase">
+                        <option value="1">1</option>
+                    </select>
+                    <br><label>Color</label>
                     <input type="text" name ="color" placeholder="color">
+                    <br><label>Imagen</label>
+                    <input type="file" name ="fichero">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

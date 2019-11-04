@@ -122,10 +122,10 @@ function producto($id){
 }
 
 
-function insert_new_prodcut($nombre,$descripcion,$precio,$color,$id_clase,$id_subclases,$cantidad){
+function insert_new_prodcut($nombre,$descripcion,$precio,$color,$id_clase,$id_subclases,$cantidad,$imagen){
     $conn = conectDb();
 
-    $sql = "INSERT INTO productos (nombrep,descripcion,precio,color,id_clase,id_subclases,cantidad) VALUES ('$nombre','$descripcion','$precio','$color','$id_clase','$id_subclases','$cantidad')";
+    $sql = "INSERT INTO productos (nombrep,descripcion,precio,color,id_clase,id_subclases,cantidad,imagen) VALUES ('$nombre','$descripcion','$precio','$color','$id_clase','$id_subclases','$cantidad','$imagen')";
     if (mysqli_query($conn, $sql)) {
         closeDb($conn);
         return true;
