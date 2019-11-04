@@ -41,6 +41,8 @@ if (mysqli_num_rows($result) > 0) {
     
 ';
 
+
+
     $result = mostrarSubClases();
     $query_table = "";
 
@@ -53,14 +55,21 @@ if (mysqli_num_rows($result) > 0) {
 
             $query_table .= '<td>
                
-                        <a class="btn btn-medium waves-effect waves-light red accent-3 hoverable" href="functional/_eliminar_clases.php?id='.$row['id_subclase'].'">
+                        <a class="btn btn-medium waves-effect waves-light red accent-3 hoverable" href="functional/_eliminar_subclases.php?id='.$row['id_subclase'].'">
                             <i class="btn btn-danger">Eliminar</i>
                         </a>
                     </td>';
             $query_table .= "</tr>";
         }
         echo '
+<br><br>
+        <div class ="row">
+    <div class ="col-sm-12 text-right">
+        <button class ="admin_button" data-toggle="modal" data-target="#exampleModal2">Agregar SubClase</button>
+    </div>
 
+</div>
+<br><br>
         <div class="wrapper">
             <div class="table-wrapper responsive-table new_data_table">
             

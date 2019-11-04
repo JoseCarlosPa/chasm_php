@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
 
             $usuario = login($_POST["email"], $_POST["password"]);
             if (mysqli_num_rows($usuario)) {
-                echo 'entra';
+
                 while ($row = mysqli_fetch_assoc($usuario)) {
                     //asigna a sesion el nombre de la personas
                     if (!isset($_SESSION['usuario'])) {
@@ -34,18 +34,17 @@ if (isset($_POST["submit"])) {
                     $_SESSION['nombre'] = $row['empresa'];
                     $_SESSION['id_usuario'] = $row['id_usuario'];
                 }
-                echo '5.1';
+
                 if($_SESSION['user_type_id'] == 1){
-                    echo '5';
-                    header('location: ../admin.php');
+                    header('location: /../admin.php');
                 }else{
-                    header('location: ../index.php');
+                    header('location: /../index.php');
                 }
 
             }
 
         }else{
-            header('location: ../index.php');
+            header('location: /../index.php');
         }
 
         /*
@@ -59,6 +58,6 @@ if (isset($_POST["submit"])) {
     }
 
 }else{
-    header('location: ../index.php');
+    header('location: /../index.php');
 }
 

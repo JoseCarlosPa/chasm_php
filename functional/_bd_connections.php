@@ -1,6 +1,6 @@
 <?php
 session_start();
-$GLOBALS['local_servidor'] =0;
+$GLOBALS['local_servidor'] =1;
 $_SESSION['error_bd_login'] = 0;
 //se conecta con la base de datos indicada
 function conectDb()
@@ -244,4 +244,37 @@ function mostrarSubClases(){
     $sql = "SELECT * FROM sublcases";
     $result = mysqli_query($conn,$sql);
     return $result;
+}
+
+function insert_new_subclass($nombre){
+    $conn = conectDb();
+
+    $sql = "INSERT INTO sublcases (nombresc) VALUES ('$nombre')";
+    if (mysqli_query($conn, $sql)) {
+        closeDb($conn);
+        return true;
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        closeDb($conn);
+        return false;
+    }
+    closeDb($conn);
+}
+
+function eliminarSubClasePorID($id_clase){
+    $conn = conectDb();
+    $sql = "DELETE FROM sublcases WHERE id_subclase = ?";
+    if($stmt = $conn->prepare($sql)){
+        $stmt->bind_param('i', $id_clase);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        closeDB($conn);
+        return true;
+    } else{
+        closeDB($conn);
+        return false;
+    }
+    closeDB($conn);
+
 }

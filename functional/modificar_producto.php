@@ -34,12 +34,12 @@ if (isset($_POST["submit"])){
         copy($_FILES['fichero']['tmp_name'],$destino);
 
         if(modificarProducto($_GET['id'],$_POST["nombre"], $_POST["descripcion"],$_POST["precio"], $_POST["precio_p"],$_POST["cantidad"],$_FILES['fichero']['name'])){
-            echo 'si lo logro';
-            header('location: ../admin.php');
+
+            header('location: /../admin.php');
 
         }else{
-            echo 'NO lo logro';
-           header('location: ../admin.php');
+
+           header('location: /../admin.php');
         }
     }
 }

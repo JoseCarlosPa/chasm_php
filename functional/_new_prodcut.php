@@ -44,11 +44,11 @@ if (isset($_POST["submit"])){
         if(insert_new_prodcut($_POST["nombre"],$_POST["descripcion"],$_POST["precio_u"],$_POST["color"],$_POST["clase"],$_POST["clase"],$_POST["cantidad"],$_FILES['fichero']['name'])){
 
 
-            header('location: ../admin.php');
+            header('location: /../admin.php');
 
         }else{
 
-            //header('location: ../admin.php');
+            header('location: /../admin.php');
         }
     }
 

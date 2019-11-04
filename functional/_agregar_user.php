@@ -17,7 +17,7 @@ if (isset($_POST["submit"])){
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             if($_POST["email_r"] == $row['email']){
-                header('location: ../usuarios.php');
+                header('location: /../usuarios.php');
                 die();
             }
         }
@@ -36,10 +36,10 @@ if (isset($_POST["submit"])){
         && $_POST["password_r"] != ""){
 
         if(insert_new_user($_POST["nombre_r"],password_hash($_POST["password_r"],PASSWORD_DEFAULT),$_POST["email_r"],$_POST["tipo_usuario"],$_POST["empresa"])){
-            header('location: ../usuarios.php');
+            header('location: /../usuarios.php');
 
         }else{
-            header('location: ../usuarios.php');
+            header('location: /../usuarios.php');
         }
     }
 
