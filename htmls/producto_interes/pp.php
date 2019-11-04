@@ -8,7 +8,7 @@ $query_table = '
                 <div class="col-sm-4">
                     <a href="#" class="links_cards">
                         <div class="card card_shadow" style="width: 30rem;height: 30rem;">
-                            <img class="card-img-top" src="imgs/miniaturas/2.png" alt="Card image cap" >
+                            <img class="card-img-top" src="imgs/tienda/productos/' . $row["imagen"] . '" alt="Card image cap" width="25rem" height="300rem">
                             <div class="card-body">
                                 <h5 class="card-title">' . $row["nombrep"] . ' </h5>
                                 <p class="card-text">' . $row["descripcion"] . ' </p>

@@ -112,6 +112,41 @@ function ob4($inicio){
 
 }
 
+function ob5($inicio){
+
+    $tamanio_pagina = 9;
+    $pagina = $inicio;
+    $empezar_desde = ($pagina-1)*$tamanio_pagina;
+
+    $conn = conectDb();
+    $sql = "SELECT * FROM productos LIMIT $empezar_desde,$tamanio_pagina";
+    $result = mysqli_query($conn,$sql);
+    $numeroFilas = mysqli_num_rows($result);
+    $total_paginas = ceil($numeroFilas/$tamanio_pagina);
+
+    return $result;
+
+}
+
+function paginacion(){
+
+    $tamanio_pagina = 9;
+
+    $conn = conectDb();
+    $sql = "SELECT * FROM productos ";
+    $result = mysqli_query($conn,$sql);
+    $numeroFilas = mysqli_num_rows($result);
+    $total_paginas = ceil($numeroFilas/$tamanio_pagina);
+
+    for($i = 1; $i<=$total_paginas; $i++){
+        echo '<li class="page-item"><a class="page-link" href="tienda.php?pagina='.$i.'" >'.$i.'</a></li>' ;
+    }
+
+    return true;
+
+}
+
+
 function producto($id){
 
     $conn = conectDb();

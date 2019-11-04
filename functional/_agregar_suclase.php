@@ -12,10 +12,10 @@ if (isset($_POST["submit"])){
         && $_POST["nombresc"] != ""){
 
         if(insert_new_subclass($_POST["nombresc"])){
-            header('location: ../clases.php');
+            header('location: /../clases.php');
 
         }else{
-            header('location: ../clases.php');
+            header('location: /../clases.php');
         }
     }
 
