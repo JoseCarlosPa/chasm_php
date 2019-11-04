@@ -219,7 +219,7 @@ echo '
 
             <!-- Begin Page Content --------------------------------------------------------------->
             <div class="container-fluid">
-                <form method="post" action="modificar_producto.php?id=' . $row['id_productos'] . '">
+                <form method="post" action="modificar_producto.php?id=' . $row['id_productos'] .'" enctype="multipart/form-data">
                     <h2>Producto No:' . $row['id_productos'] . ' 
                     <div class ="row">
                         <div class ="col-sm-8">
@@ -334,9 +334,9 @@ echo '
                             </div>   
                         </div>
                         <div class ="col-sm-2">
-                            <img src ="../imgs/tienda/productos/'.$row['imagen'].'">
+                            <img src ="../imgs/tienda/productos/'.$row['imagen'].'" height="250rem" width="300rem">
                             <br>
-                            <input style ="font-size: 50%"name="imagen" type="file" />
+                            <input style ="font-size: 50%"name="fichero" type="file" />
                         </div>  
                     </div>
                 </form>

@@ -191,9 +191,9 @@ function ob3(){
 }
 
 
-function modificarProducto($id,$nombre,$descripcion,$preciop,$preciou,$cantidad){
+function modificarProducto($id,$nombre,$descripcion,$preciop,$preciou,$cantidad,$imagen){
     $conn = conectDb();
-    $sql = "UPDATE productos SET cantidad = '$cantidad',nombrep = '$nombre',descripcion = '$descripcion',precio = '$preciop',precio_p = '$preciou' WHERE id_productos = '$id'";
+    $sql = "UPDATE productos SET cantidad = '$cantidad',nombrep = '$nombre',descripcion = '$descripcion',precio = '$preciop',precio_p = '$preciou',imagen = '$imagen' WHERE id_productos = '$id'";
     $result = mysqli_query($conn,$sql);
     return $result;
 }
