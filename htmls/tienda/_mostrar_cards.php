@@ -13,7 +13,8 @@ if (mysqli_num_rows($result) > 0) {
                     <a href="_producto_interes.php?id='.$row['id_productos'].'" class="links_cards">
                         <div class="card card_shadow" style="width: 14rem;height: 35rem;">
                             <div class="trapezoid3 "><p style="margin-top: 10%">Comprar</p></div>
-                            <img class="card-img-top" src="imgs/miniaturas/2.png" alt="Card image cap">
+                            <br>
+                            <img class="card-img-top" src="imgs/tienda/productos/' . $row["imagen"] . '" alt="Card image cap" height="110rem" width="20rem">
                             <div class="card-body">
                                 <h5 class="card-title">' . $row["nombrep"] . ' </h5>
                                 <p class="card-text">' . $row["descripcion"] . ' </p>
